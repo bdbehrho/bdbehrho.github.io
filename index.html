@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Prog 4: 3D Frogger</title>
+    
+    <link type="text/css" rel="stylesheet" href="rasterize.css">
+
+    <script type="text/javascript" src="gl-matrix-min.js"></script>
+    <script type="text/javascript" src="drawTextures.js"></script>
+  </head>
+  <div id="score">Current Streak: <input id="streak" readonly="true" value="0"></input>Current Level: <input id="level" readonly="true" value="1"></input></div>
+  <body onload="main();">
+    <canvas id="myImageCanvas" width="512" height="512"></canvas>
+    <canvas id="myWebGLCanvas" width="512" height="512"></canvas>
+  </body>
+</html>
