@@ -524,11 +524,11 @@ function loadModels() {
   inputTriangles.push(makeRectangularPrism(2.5, 0, lane2, carLength, carWidth, carHeight, "car", [-carSpeed, 0, 0]));
 
   var random = Math.random();
-  var speed = .004;
+  var speed = .008;
   if(random < .5) {
 	speed *= -1;
   } 
-  inputTriangles.push(makeRectangularPrism(-3, 0, bikeLane, .2, .05, .1, "bike", [speed, 0, 0]));
+  inputTriangles.push(makeRectangularPrism(-3, 0, bikeLane, .2, .01, .1, "bike", [speed, 0, 0]));
   
   inputTriangles.push(makeRectangularPrism(-3, 0, lane3, .4, logWidth, logHeight, "log", [logSpeed, 0, 0]));
   inputTriangles.push(makeRectangularPrism(-2.1, 0, lane3, .2, logWidth, logHeight, "log", [logSpeed, 0, 0]));
@@ -1065,7 +1065,7 @@ function renderModels() {
 				} else if(inputTriangles[whichTriSet].material.texture == prefix2 + "log.jpg") {
 					textureNum = 6;
 				} else if(inputTriangles[whichTriSet].material.texture == prefix2 + "bike.png") {
-					textureNum = 2;
+					textureNum = 4;
 				}
 				gl.activeTexture(gl.TEXTURE0 + textureNum);
 				gl.bindTexture(gl.TEXTURE_2D, textures[textureNum]);
