@@ -31,7 +31,7 @@ var lightPosition = vec3.fromValues(2,4,-0.5); // default light position
 var rotateTheta = Math.PI/50; // how much to rotate models by with each key press
 
 var prefix = "https://ncsucgclass.github.io/prog3/";
-var prefix2 = "";
+var prefix2 = "https://bdbehrho.github.io/";
 
 /* webgl and geometry data */
 var gl = null; // the all powerful gl object. It's all here folks!
