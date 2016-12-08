@@ -997,6 +997,8 @@ function renderModels() {
 		var distance = vec3.dot(eyeToPoint, lookAt);
 		if (inputTriangles[whichTriSet].type == "bike") {
 			distance = -1;
+		} else if (inputTriangles[whichTriSet].type == "floor") {
+			distance = 1000;
 		}
 		distances.push([distance, whichTriSet]);
 	}
