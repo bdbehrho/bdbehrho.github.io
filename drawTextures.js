@@ -411,9 +411,9 @@ function loadModels() {
 			prismMaterial = {"ambient": [0.1,0.1,0.1], "diffuse": [0.4,0.4,0.4], "specular": [0.3,0.3,0.3], "n": 11, "alpha": 0.9, "texture": prefix2 + "bus.png"};
 		} else if (prismType == "bike") {
 			if(prismVelocity[0] > 0) {
-				prismUVs = [[.125,.05],[.125,.95],[.95,.95],[.95,.05],[.125,.05],[.125,.95],[.95,.95],[.95,.05]];
+				prismUVs = [[0,0],[0,1],[1,1],[1,0],[0,0],[0,1],[1,1],[1,0]];
 			} else {
-				prismUVs = [[.95,.05],[.95,.95],[.125,.95],[.125,.05],[.95,.05],[.95,.95],[.125,.95],[.125,.05]];
+				prismUVs = [[1,0],[1,1],[0,1],[0,0],[1,0],[1,1],[0,1],[0,0]];
 			}
 			prismMaterial = {"ambient": [0.1,0.1,0.1], "diffuse": [0.4,0.4,0.4], "specular": [0.3,0.3,0.3], "n": 11, "alpha": 0.9, "texture": prefix2 + "bike.png"};
 		} else {
@@ -557,7 +557,7 @@ function loadModels() {
   inputTriangles.push(makeRectangularPrism(2.25, 0, lane4, .2, logWidth, logHeight, "log", [-logSpeed, 0, 0]));
   inputTriangles.push(makeRectangularPrism(2.5, 0, lane4, .2, logWidth, logHeight, "log", [-logSpeed, 0, 0]));
 
-  inputTriangles[inputTriangles.length] = makeRectangularPrism(-3, 0, bikeLane, .2, .01, .1, "bike", [speed, 0, 0]);
+  inputTriangles[inputTriangles.length] = makeRectangularPrism(-3, 0, bikeLane, .2, 0, .1, "bike", [speed, 0, 0]);
 
   //inputTriangles[0].material.texture = "https://github.ncsu.edu/bdbehrho/FroggerImages/blob/master/frog.jpg";
   //inputTriangles[0].material.texture = prefix + "rocktile.jpg";
