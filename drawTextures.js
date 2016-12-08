@@ -643,7 +643,7 @@ function loadModels() {
             } // end for each triangle set 
         
             inputSpheres = getJSONFile(INPUT_SPHERES_URL,"spheres"); // read in the sphere data
-			inputSpheres = [{"x": 0.5, "y": 0.05, "z": 0, "r":0.05, "ambient": [0.1,0.1,0.1], "diffuse": [0,0.6,0], "specular": [0.3,0.3,0.3], "n": 1, "alpha": 0, "texture": prefix + "sky.jpg"}];
+			inputSpheres = [{"x": 0.5, "y": 0.05, "z": 0, "r":0.05, "ambient": [0.1,0.1,0.1], "diffuse": [0,0.6,0], "specular": [0.3,0.3,0.3], "n": 1, "alpha": 1, "texture": prefix + "sky.jpg"}];
             if (inputSpheres == String.null)
                 throw "Unable to load spheres file!";
             else {
