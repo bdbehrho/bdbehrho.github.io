@@ -903,7 +903,7 @@ function renderModels() {
 		}
 	}
 	for(var i = 0; i < inputTriangles.length; i++) {
-		if (inputTriangles[i].type == "car" || inputTriangles[i].type == "log") {
+		if (inputTriangles[i].type == "car" || inputTriangles[i].type == "log" || inputTriangles[i].type == "bike") {
 			var model = inputTriangles[i];
 			var change = vec3.fromValues(model.velocity[0], model.velocity[1], model.velocity[2]);
 			var currentPosition = vec3.create();
@@ -912,7 +912,7 @@ function renderModels() {
 			vec3.add(frogPos, vec3.fromValues(frog.x, frog.y, frog.z), frog.translation);
 			if(frogPos[2] + frog.r > currentPosition[2] && frogPos[2] - frog.r < currentPosition[2] + carWidth) {
 				if(frogPos[0] - frog.r < currentPosition[0] + model.objectLength && frogPos[0] + frog.r > currentPosition[0]) {
-					if(model.type == "car") {
+					if(model.type == "car" || model.type == "bike") {
 						currentStreak = 0;
 						document.getElementById("streak").value = currentStreak;
 						frog.translation = vec3.fromValues(0,0,0);
