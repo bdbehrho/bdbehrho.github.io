@@ -16,6 +16,7 @@ var logHeight = .05;
 var logWidth = .15;
 var lane1 = .1;
 var lane2 = .3;
+var bikeLane = .55;
 var lane3 = .7;
 var lane4 = .85;
 var carSpeed = .003;
@@ -407,6 +408,9 @@ function loadModels() {
 		if (prismType == "car") {
 			prismUVs = [[.125,.05],[.125,.95],[.95,.95],[.95,.05],[.125,.05],[.125,.95],[.95,.95],[.95,.05]];
 			prismMaterial = {"ambient": [0.1,0.1,0.1], "diffuse": [0.4,0.4,0.4], "specular": [0.3,0.3,0.3], "n": 11, "alpha": 0.9, "texture": prefix2 + "bus.png"};
+		} else if (prismType == "bike") {
+			prismUVs = [[.125,.05],[.125,.95],[.95,.95],[.95,.05],[.125,.05],[.125,.95],[.95,.95],[.95,.05]];
+			prismMaterial = {"ambient": [0.1,0.1,0.1], "diffuse": [0.4,0.4,0.4], "specular": [0.3,0.3,0.3], "n": 11, "alpha": 0.9, "texture": prefix2 + "bike.png"};
 		} else {
 			prismMaterial = {"ambient": [0.1,0.1,0.1], "diffuse": [0.6,.18,0.18], "specular": [0.3,0.3,0.3], "n": 11, "alpha": 0.9, "texture": prefix2 + "log.jpg"};
 		}			
@@ -519,6 +523,13 @@ function loadModels() {
   inputTriangles.push(makeRectangularPrism(2.25, 0, lane2, carLength, carWidth, carHeight, "car", [-carSpeed, 0, 0]));
   inputTriangles.push(makeRectangularPrism(2.5, 0, lane2, carLength, carWidth, carHeight, "car", [-carSpeed, 0, 0]));
 
+  var random = Math.random();
+  var speed = .004;
+  if(random < .5) {
+	speed *= -1;
+  } 
+  inputTriangles.push(makeRectangularPrism(-3, 0, bikeLane, .2, .05, .1, "bike", [speed, 0, 0]));
+  
   inputTriangles.push(makeRectangularPrism(-3, 0, lane3, .4, logWidth, logHeight, "log", [logSpeed, 0, 0]));
   inputTriangles.push(makeRectangularPrism(-2.1, 0, lane3, .2, logWidth, logHeight, "log", [logSpeed, 0, 0]));
   inputTriangles.push(makeRectangularPrism(-1.5, 0, lane3, .4, logWidth, logHeight, "log", [logSpeed, 0, 0]));
@@ -1053,6 +1064,8 @@ function renderModels() {
 					textureNum = 5;
 				} else if(inputTriangles[whichTriSet].material.texture == prefix2 + "log.jpg") {
 					textureNum = 6;
+				} else if(inputTriangles[whichTriSet].material.texture == prefix2 + "bike.png") {
+					textureNum = 2;
 				}
 				gl.activeTexture(gl.TEXTURE0 + textureNum);
 				gl.bindTexture(gl.TEXTURE_2D, textures[textureNum]);
