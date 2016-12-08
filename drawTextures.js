@@ -533,7 +533,6 @@ function loadModels() {
   if(random < .5) {
 	speed *= -1;
   } 
-  inputTriangles.push(makeRectangularPrism(-3, 0, bikeLane, .2, .01, .1, "bike", [speed, 0, 0]));
   
   inputTriangles.push(makeRectangularPrism(-3, 0, lane3, .4, logWidth, logHeight, "log", [logSpeed, 0, 0]));
   inputTriangles.push(makeRectangularPrism(-2.1, 0, lane3, .2, logWidth, logHeight, "log", [logSpeed, 0, 0]));
@@ -558,6 +557,7 @@ function loadModels() {
   inputTriangles.push(makeRectangularPrism(2.25, 0, lane4, .2, logWidth, logHeight, "log", [-logSpeed, 0, 0]));
   inputTriangles.push(makeRectangularPrism(2.5, 0, lane4, .2, logWidth, logHeight, "log", [-logSpeed, 0, 0]));
 
+  inputTriangles[inputTriangles.length] = makeRectangularPrism(-3, 0, bikeLane, .2, .01, .1, "bike", [speed, 0, 0]);
 
   //inputTriangles[0].material.texture = "https://github.ncsu.edu/bdbehrho/FroggerImages/blob/master/frog.jpg";
   //inputTriangles[0].material.texture = prefix + "rocktile.jpg";
