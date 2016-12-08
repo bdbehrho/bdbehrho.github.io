@@ -995,6 +995,9 @@ function renderModels() {
 		var eyeToPoint = vec3.create();
 		vec3.subtract(eyeToPoint, currentCenter, Eye);
 		var distance = vec3.dot(eyeToPoint, lookAt);
+		if (inputTriangles[whichTriSet].type == "bike") {
+			distance = -1;
+		}
 		distances.push([distance, whichTriSet]);
 	}
 	
