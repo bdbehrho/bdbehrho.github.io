@@ -777,7 +777,7 @@ function setupShaders() {
             
             // combine to output color
             vec3 colorOut = ambient + diffuse + specular; // no specular yet
-			gl_FragColor = vec4(colorOut, 1.0) * texture2D(uSampler, vec2(uvPos.s, uvPos.t));
+			gl_FragColor = vec4(colorOut, uA) * texture2D(uSampler, vec2(uvPos.s, uvPos.t));
 			//gl_FragColor = vec4(colorOut.rgb * texture2D(uSampler, vec2(uvPos.s, uvPos.t)).rgb, texture2D(uSampler, vec2(uvPos.s, uvPos.t)).a * uA);
 			//gl_FragColor = texture2D(uSampler, vec2(uvPos.s, uvPos.t));
         }
