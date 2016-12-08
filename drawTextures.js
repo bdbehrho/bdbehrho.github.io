@@ -408,16 +408,16 @@ function loadModels() {
 		var prismMaterial;
 		if (prismType == "car") {
 			prismUVs = [[.125,.05],[.125,.95],[.95,.95],[.95,.05],[.125,.05],[.125,.95],[.95,.95],[.95,.05]];
-			prismMaterial = {"ambient": [0.1,0.1,0.1], "diffuse": [0.4,0.4,0.4], "specular": [0.3,0.3,0.3], "n": 11, "alpha": 0.9, "texture": prefix2 + "bus.png"};
+			prismMaterial = {"ambient": [0.1,0.1,0.1], "diffuse": [0.4,0.4,0.4], "specular": [0.3,0.3,0.3], "n": 11, "alpha": 1, "texture": prefix2 + "bus.png"};
 		} else if (prismType == "bike") {
 			if(prismVelocity[0] > 0) {
 				prismUVs = [[0,0],[0,1],[1,1],[1,0],[0,0],[0,1],[1,1],[1,0]];
 			} else {
 				prismUVs = [[1,0],[1,1],[0,1],[0,0],[1,0],[1,1],[0,1],[0,0]];
 			}
-			prismMaterial = {"ambient": [0.1,0.1,0.1], "diffuse": [0.4,0.4,0.4], "specular": [0.3,0.3,0.3], "n": 11, "alpha": 0.9, "texture": prefix2 + "bike.png"};
+			prismMaterial = {"ambient": [0.1,0.1,0.1], "diffuse": [0.4,0.4,0.4], "specular": [0.3,0.3,0.3], "n": 11, "alpha": 1, "texture": prefix2 + "bike.png"};
 		} else {
-			prismMaterial = {"ambient": [0.1,0.1,0.1], "diffuse": [0.6,.18,0.18], "specular": [0.3,0.3,0.3], "n": 11, "alpha": 0.9, "texture": prefix2 + "log.jpg"};
+			prismMaterial = {"ambient": [0.1,0.1,0.1], "diffuse": [0.6,.18,0.18], "specular": [0.3,0.3,0.3], "n": 11, "alpha": 1, "texture": prefix2 + "log.jpg"};
 		}			
 		var prismTriangles = [[0,1,2], [0,2,3], //front
 		                 [0, 4, 1], [1,4,5], //left
@@ -485,14 +485,14 @@ function loadModels() {
     
     inputTriangles = getJSONFile(prefix + "triangles.json","triangles"); // read in the triangle data
 	inputTriangles = [{
-    "material": {"ambient": [0.1,0.1,0.1], "diffuse": [0.6,0.6,0.6], "specular": [0.3,0.3,0.3], "n":13, "alpha": 0.7, "texture": prefix2 + "frogger.png"}, 
+    "material": {"ambient": [0.1,0.1,0.1], "diffuse": [0.6,0.6,0.6], "specular": [0.3,0.3,0.3], "n":13, "alpha": 1, "texture": prefix2 + "frogger.png"}, 
     "vertices": [[0, 0, 0],[0, 0, 1],[1,0,0],[1,0,1]],
     "normals": [[0, 1, 0],[0, 1, 0],[0, 1,0],[0, 1,0]],
     "uvs": [[0,.1], [0,.8], [1,.1], [1,.8]],
     "triangles": [[0,1,2],[2,3,1]],
 	"type": "floor"
   },{
-    "material": {"ambient": [0.1,0.1,0.1], "diffuse": [0,0.6,0], "specular": [0.3,0.3,0.3], "n":13, "alpha": 0.7, "texture": "https://cdn.tutsplus.com/mobile/authors/mark-hammonds/Corona-SDK_Frogger_Part-1_8.png"}, 
+    "material": {"ambient": [0.1,0.1,0.1], "diffuse": [0,0.6,0], "specular": [0.3,0.3,0.3], "n":13, "alpha": 1, "texture": "https://cdn.tutsplus.com/mobile/authors/mark-hammonds/Corona-SDK_Frogger_Part-1_8.png"}, 
     "vertices": [[.3, 0, 1],[.3 + winWidth, 0, 1],[.3,.2,1],[.3 + winWidth,.2,1]],
     "normals": [[0, 1, 0],[0, 1, 0],[0, 1,0],[0, 1,0]],
     "uvs": [[0,0], [0,1], [1,0], [1,1]],
@@ -643,7 +643,7 @@ function loadModels() {
             } // end for each triangle set 
         
             inputSpheres = getJSONFile(INPUT_SPHERES_URL,"spheres"); // read in the sphere data
-			inputSpheres = [{"x": 0.5, "y": 0.05, "z": 0, "r":0.05, "ambient": [0.1,0.1,0.1], "diffuse": [0,0.6,0], "specular": [0.3,0.3,0.3], "n": 1, "alpha": 1, "texture": prefix + "sky.jpg"}];
+			inputSpheres = [{"x": 0.5, "y": 0.05, "z": 0, "r":0.05, "ambient": [0.1,0.1,0.1], "diffuse": [0,0.6,0], "specular": [0.3,0.3,0.3], "n": 1, "alpha": 0, "texture": prefix + "sky.jpg"}];
             if (inputSpheres == String.null)
                 throw "Unable to load spheres file!";
             else {
