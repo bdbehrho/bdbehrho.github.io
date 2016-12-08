@@ -3,7 +3,7 @@
 /* assignment specific globals */
 const INPUT_TRIANGLES_URL = "https://ncsucgclass.github.io/prog3/triangles.json"; // triangles file loc
 const INPUT_SPHERES_URL = "https://ncsucgclass.github.io/prog3/spheres.json"; // spheres file loc
-var defaultEye = vec3.fromValues(0.5,0.5,-0.5); // default eye position in world space
+var defaultEye = vec3.fromValues(0.5,0.5,-.5); // default eye position in world space
 var defaultCenter = vec3.fromValues(0.5,0,0.5); // default view direction in world space
 var defaultUp = vec3.fromValues(0,1,.5); // default view up vector
 var lightAmbient = vec3.fromValues(1,1,1); // default light ambient emission
@@ -837,6 +837,17 @@ function setupShaders() {
 function renderModels() {
 	var onLog = false;
 	var frog = inputSpheres[0];
+	
+	if (frog.z + frog.translation[2] - frog.r > lane2 + carWidth && Eye[2] < 0) {
+		var forward = vec3.fromValues(0,0,.01);
+		Eye = vec3.add(Eye,Eye,forward);
+		Center = vec3.add(Center,Center,forward);
+	}
+	if (frog.z + frog.translation[2] - frog.r < lane2 + carWidth && Eye[2] > -.5) {
+		var forward = vec3.fromValues(0,0,-.01);
+		Eye = vec3.add(Eye,Eye,forward);
+		Center = vec3.add(Center,Center,forward);
+	}
 	if(frog.x + frog.translation[0] + frog.r > 1) {
 		frog.translation[0] = 1 - frog.x - frog.r;
 	} else if (frog.x + frog.translation[0] - frog.r < 0) {
