@@ -1,13 +1,13 @@
 #myWebGLCanvas {
     position: absolute;
-    left: 0px;
+    left: 40px;
     top: 40px;
     z-index: 10;
 }
 
 #myImageCanvas {
     position: absolute;
-    left: 0px;
+    left: 40px;
     top: 40px;
     z-index: 0;
 }
