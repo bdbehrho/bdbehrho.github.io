@@ -409,7 +409,11 @@ function loadModels() {
 			prismUVs = [[.125,.05],[.125,.95],[.95,.95],[.95,.05],[.125,.05],[.125,.95],[.95,.95],[.95,.05]];
 			prismMaterial = {"ambient": [0.1,0.1,0.1], "diffuse": [0.4,0.4,0.4], "specular": [0.3,0.3,0.3], "n": 11, "alpha": 0.9, "texture": prefix2 + "bus.png"};
 		} else if (prismType == "bike") {
-			prismUVs = [[.125,.05],[.125,.95],[.95,.95],[.95,.05],[.125,.05],[.125,.95],[.95,.95],[.95,.05]];
+			if(prismVelocity[0] > 0) {
+				prismUVs = [[.125,.05],[.125,.95],[.95,.95],[.95,.05],[.125,.05],[.125,.95],[.95,.95],[.95,.05]];
+			} else {
+				prismUVs = [[.95,.95],[.95,.05],[.125,.05],[.125,.95],[.95,.95],[.95,.05],[.125,.05],[.125,.95]];
+			}
 			prismMaterial = {"ambient": [0.1,0.1,0.1], "diffuse": [0.4,0.4,0.4], "specular": [0.3,0.3,0.3], "n": 11, "alpha": 0.9, "texture": prefix2 + "bike.png"};
 		} else {
 			prismMaterial = {"ambient": [0.1,0.1,0.1], "diffuse": [0.6,.18,0.18], "specular": [0.3,0.3,0.3], "n": 11, "alpha": 0.9, "texture": prefix2 + "log.jpg"};
@@ -524,7 +528,7 @@ function loadModels() {
   inputTriangles.push(makeRectangularPrism(2.5, 0, lane2, carLength, carWidth, carHeight, "car", [-carSpeed, 0, 0]));
 
   var random = Math.random();
-  var speed = .008;
+  var speed = .024;
   if(random < .5) {
 	speed *= -1;
   } 
