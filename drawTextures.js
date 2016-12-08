@@ -358,7 +358,7 @@ function handleLoadedTexture(texture) {
 function loadTextures() {
 	getTexture(prefix + "rocktile.jpg");
 	getTexture(prefix + "sky.jpg");
-	getTexture(prefix2 + "frog.jpg");
+	getTexture(prefix2 + "frog.png");
 	getTexture(prefix2 + "frogger.png");
 	getTexture(prefix2 + "bike.png");
 	getTexture(prefix2 + "bus.png");
