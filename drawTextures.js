@@ -295,6 +295,7 @@ function setupWebGL() {
         gl.clearColor(0, 0, 0, 1.0); // use black when we clear the frame buffer
         gl.clearDepth(1.0); // use max when we clear the depth buffer
         gl.enable(gl.DEPTH_TEST); // use hidden surface removal (with zbuffering)
+		gl.enable(gl.BLEND);
       }
     } // end try
     
@@ -1075,7 +1076,7 @@ function renderModels() {
 				gl.bindTexture(gl.TEXTURE_2D, textures[textureNum]);
 				gl.uniform1i(samplerUniform, textureNum);
 				
-				
+				gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 				
 				// triangle buffer: activate and render
 				gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,triangleBuffers[whichTriSet]); // activate
