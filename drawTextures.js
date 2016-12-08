@@ -424,7 +424,7 @@ function loadModels() {
 						 [1, 5, 2], [2, 5, 6], //top
 						 [3,2,6], [6,3,7] //right
 						 ];
-		return({objectLength: width, velocity: prismVelocity, type: prismType, material: prismMaterial, vertices:prismVertices, normals:prismNormals, triangles:prismTriangles, uvs:prismUVs});
+		return({objectLength: width, objectWidth: length, velocity: prismVelocity, type: prismType, material: prismMaterial, vertices:prismVertices, normals:prismNormals, triangles:prismTriangles, uvs:prismUVs});
 	}
 	
     // make a sphere with radius 1 at the origin, with numLongSteps longitudes. 
@@ -915,7 +915,7 @@ function renderModels() {
 			vec3.add(currentPosition, model.translation, model.vertices[0]);
 			var frogPos = vec3.create();
 			vec3.add(frogPos, vec3.fromValues(frog.x, frog.y, frog.z), frog.translation);
-			if(frogPos[2] + frog.r > currentPosition[2] && frogPos[2] - frog.r < currentPosition[2] + carWidth) {
+			if(frogPos[2] + frog.r > currentPosition[2] && frogPos[2] - frog.r < currentPosition[2] + model.objectWidth) {
 				if(frogPos[0] - frog.r < currentPosition[0] + model.objectLength && frogPos[0] + frog.r > currentPosition[0]) {
 					if(model.type == "car" || model.type == "bike") {
 						currentStreak = 0;
