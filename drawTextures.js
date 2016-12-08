@@ -292,7 +292,7 @@ function setupWebGL() {
       if (gl == null) {
         throw "unable to create gl context -- is your browser gl ready?";
       } else {
-        gl.clearColor(0, 0, 0, 1.0); // use black when we clear the frame buffer
+        gl.clearColor(1, 1, 1, 1.0); // use black when we clear the frame buffer
         gl.clearDepth(1.0); // use max when we clear the depth buffer
         gl.enable(gl.DEPTH_TEST); // use hidden surface removal (with zbuffering)
 		gl.enable(gl.BLEND);
