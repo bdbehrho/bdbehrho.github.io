@@ -6,6 +6,11 @@ This is a simple 3D version of Frogger implemented in WebGL. To move Frogger, us
 bikes will kill Frogger if they hit him and Frogger will drown if he goes in the water, but you can jump on logs
 to avoid the water. Get into the green square to win; win three times in a row, and the level will get harder.
 
+## Link to game
+
+I am okay with this game being shared publicly. It is already hosted online on Github pages at the following link.
+[Link to game](https://bdbehrho.github.io)
+
 ## Screencast
 
 [Link to screencast](https://goo.gl/photos/diPVjYnxdRAQHrj86)
